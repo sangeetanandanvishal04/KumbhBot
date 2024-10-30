@@ -50,7 +50,7 @@ queries = [
     "aap kaun ho?",  #Hinglish
     "आप कौन हो?",   #Hindi
     "Who are you?",  #English
-    "शतकात जगणारे कवी होते आणि मराठीत रचणारे" #Marathi
+    "तू कोण आहेस?" #Marathi
 ]
 
 #for query in queries:
