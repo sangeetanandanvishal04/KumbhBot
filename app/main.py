@@ -135,3 +135,44 @@ async def reset_password(password_data: schemas.PasswordReset, db: Session = Dep
 
     db.commit()
     return {"message": "Password reset successfully"}
+
+#http://127.0.0.1:8000/ask?user_query=Tell me something about Maha Kumbh Mela.
+@app.get("/ask")
+def ask_query(user_query: str, current_user: int = Depends(oAuth2.get_current_user)):
+    if not current_user:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found")
+    
+    model_response = process_user_query(user_query=user_query)
+    
+    return model_response
+
+def find_closest_match(query: str, text: str) -> bool:
+    query_words = query.split()
+    text_words = text.split()
+    for query_word in query_words:
+        matches = difflib.get_close_matches(query_word, text_words, n=1, cutoff=0.3)
+        if not matches:
+            return False
+    return True
+
+@app.post("/search-hotels")
+async def get_hotel_info(request: Request, db: Session = Depends(get_db)):
+    data = await request.json()
+    user_query = data.get("user_query", "").strip()
+
+    if not user_query:
+        return {"response": "Please provide a valid query."}
+
+    hotels_found = []
+    retrieved_types = db.query(tablesmodel.Hotels.type, tablesmodel.Hotels.hotel_list).all()
+
+    for hotel_type, hotel_list in retrieved_types:
+        if find_closest_match(user_query.lower(), hotel_type.lower()):
+            hotels_found = f"{hotel_type}: {hotel_list}"
+
+    if hotels_found:
+        response = "Here are some" + " " + hotels_found
+    else:
+        response = "Sorry, I couldn't find relevant hotels for your query."
+
+    return {"response": response} 
