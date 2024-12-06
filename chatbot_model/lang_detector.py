@@ -1,11 +1,11 @@
 from langdetect import detect, DetectorFactory
 from googletrans import Translator
 
-DetectorFactory.seed = 42  #For reproducibility of langdetect result
+DetectorFactory.seed = 42
 
-indian_languages = {'hi', 'en', 'mr', 'pa', 'ta', 'te', 'bn', 'gu', 'kn', 'ml'}
+indian_languages = {'hi', 'en', 'mr', 'pa', 'ta', 'te', 'bn'}
 
-hinglish_keywords = ["aap", "kaun", "ho", "kya", "kyu", "kyun", "hai", "nahi", "kaise", "kaun", "bahut"]
+hinglish_keywords = ["aap", "kaun", "ho", "kya", "kyu", "kyun", "hai", "nahi", "kaise", "kaun", "bahut", "mein", "batao"]
 
 def is_hinglish(query):
     query_tokens = query.lower().split()
@@ -40,20 +40,9 @@ def translate_to_original(response, query_lang):
     
 def process_query(query):
     query_lang = detect_language(query)
+    
     if query_lang:
         translated_query = translate_to_english(query, query_lang)
         return translated_query
     else:
-        return query  
-
-queries = [
-    "aap kaun ho?",  #Hinglish
-    "आप कौन हो?",   #Hindi
-    "Who are you?",  #English
-    "तू कोण आहेस?" #Marathi
-]
-
-#for query in queries:
-    #print(f"\nOriginal query: {query}")
-    #processed_query = process_query(query)
-    #print(f"Processed query: {processed_query}")      
+        return query    

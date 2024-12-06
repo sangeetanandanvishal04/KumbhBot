@@ -44,16 +44,3 @@ def preprocess_query(query):
     processed_tokens = [token for token in tokens if len(token) > 1]
 
     return processed_tokens
-
-"""queries = [
-    "Can you tell me about the hotel options near the river?",  # hotel_info
-    "I need the train schedule for Kumbh Mela.",  # transportation_info
-    "What's the weather like today?",  # weather_info
-    "I need emergency help. Call the police!",  # emergency_help
-    "What is the history of the Kumbh Mela?",  # general_info
-]
-
-for query in queries:
-    print(f"\nOriginal query: {query}")
-    cleaned_query = preprocess_query(query)
-    print(f"Processed query: {cleaned_query}")"""

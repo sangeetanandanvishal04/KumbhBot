@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from . import schemas, tablesmodel, utils, oAuth2
 from fastapi.middleware.cors import CORSMiddleware
 import difflib
-from typing import Optional
+from chatbot_model.bot import process_user_query
 
 app = FastAPI()
 
@@ -38,7 +38,7 @@ async def create_user(user:schemas.UserCreate, background_tasks: BackgroundTasks
        raise HTTPException(status_code=status.HTTP_302_FOUND, detail="Email already exists")
     
     hashed_password = utils.hash(user.password)
-    new_user = tablesmodel.User(email=user.email, password=hashed_password, role=user.role)
+    new_user = tablesmodel.User(email=user.email, password=hashed_password)
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
