@@ -349,6 +349,7 @@ def search_hotels(user_query):
 #response = search_hotels("family friendly hotels in Prayagraj")
 #print(response)
 
+#Used when train name or number is found.
 def get_response_with_name_number_of_trains(payload):
     url = "https://trains.p.rapidapi.com/v1/railways/trains/india"
     headers = {
