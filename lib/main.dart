@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'MahaKumbh: Journey Helper',
+      title: 'Maha Kumbh: Journey Helper',
       theme: ThemeData(
         scaffoldBackgroundColor: kPrimaryColor,
         primaryColor: kPrimaryColor,
