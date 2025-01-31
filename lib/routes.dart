@@ -10,7 +10,7 @@ import 'package:kumbh_mela_chatbot/screens/splash_screen/splash_screen.dart';
 Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName : (context) => const SplashScreen(),
   LoginScreen.routeName : (context) => const LoginScreen(),
-  BotScreen.routeName : (context) => BotScreen(),
+  BotScreen.routeName : (context) => const BotScreen(),
   EmailVerificationPage.routeName : (context) => const EmailVerificationPage(),
   OTPVerificationPage.routeName : (context) => const OTPVerificationPage(),
   CreateNewPasswordScreen.routeName : (context) => const CreateNewPasswordScreen(),
