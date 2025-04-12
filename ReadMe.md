@@ -69,6 +69,9 @@ required values to connect with the PostgreSQL database.
         copy this password as you'll need it in your Python script.
     --- Now, Update SMTP_PASSWORD in ".env" file.
 
+### 6. Add the Missing API Keys in generate_response.py file:
+    --- Get API keys from RapidAPI.com website.
+
 ### Installation steps of frontend in Android studio:
 Check out at the link given below for the frontend code and its proper setup:
   - https://github.com/sangeetanandanvishal04/KumbhBot.git

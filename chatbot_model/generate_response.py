@@ -278,7 +278,7 @@ def get_clothing_recommendation(temp):
 
 def get_city_weather(city_name):
     weather_api_url = "https://api.openweathermap.org/data/2.5/weather"
-    api_key = "c97c53a710476e95969e857056e4d90c"
+    api_key = "your_api_key"
 
     params = {"q": city_name, "appid": api_key, "units": "metric"}
 
@@ -353,7 +353,7 @@ def search_hotels(user_query):
 def get_response_with_name_number_of_trains(payload):
     url = "https://trains.p.rapidapi.com/v1/railways/trains/india"
     headers = {
-        "x-rapidapi-key": "148445fc61msh5cc83372fbe7949p1b2863jsn8772d938a54e",
+        "x-rapidapi-key": "your_api_key",
         "x-rapidapi-host": "trains.p.rapidapi.com",
         "Content-Type": "application/json"
     }
@@ -387,7 +387,7 @@ def get_response_with_name_number_of_trains(payload):
 def get_pnr_status(pnr):
     url = f"https://pnr-status-indian-railway.p.rapidapi.com/pnr-check/{pnr}"
     headers = {
-        "x-rapidapi-key": "148445fc61msh5cc83372fbe7949p1b2863jsn8772d938a54e",
+        "x-rapidapi-key": "your_api_key",
         "x-rapidapi-host": "pnr-status-indian-railway.p.rapidapi.com"
     }
 
@@ -410,7 +410,7 @@ def get_train_from_and_to(start, destination):
     url = "https://indian-railways-train-fetcher.p.rapidapi.com/get_train_info"
     querystring = {"start": start, "destination": destination}
     headers = {
-        "x-rapidapi-key": "148445fc61msh5cc83372fbe7949p1b2863jsn8772d938a54e",
+        "x-rapidapi-key": "your_api_key",
         "x-rapidapi-host": "indian-railways-train-fetcher.p.rapidapi.com"
     }
 
@@ -505,7 +505,7 @@ def get_general_info(user_query: str):
         "web_access": False
     }
     headers = {
-        "x-rapidapi-key": "148445fc61msh5cc83372fbe7949p1b2863jsn8772d938a54e",
+        "x-rapidapi-key": "your_api_key",
         "x-rapidapi-host": "chatgpt-42.p.rapidapi.com",
         "Content-Type": "application/json"
     }
